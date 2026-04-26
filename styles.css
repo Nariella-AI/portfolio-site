@@ -743,6 +743,13 @@ a {
   background-clip: text;
 }
 
+.gradient-text--name {
+  background: linear-gradient(110deg, #a7f3d0 0%, #5eead4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .gradient-text--hero {
   background: linear-gradient(
     105deg,
@@ -1139,10 +1146,13 @@ a {
 }
 
 .project-card {
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
   border-radius: var(--radius);
   background: linear-gradient(155deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
   border: 1px solid var(--border);
+  overflow: hidden;
   transition: opacity 0.65s var(--ease-out-expo), transform 0.55s var(--ease-out-expo),
     border-color 0.3s, box-shadow 0.35s;
 }
@@ -1151,6 +1161,26 @@ a {
   border-color: rgba(232, 255, 71, 0.2);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
   transform: translateY(-3px);
+}
+
+.project-media {
+  margin: 0;
+  position: relative;
+  height: 180px;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.project-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.95) contrast(1.05);
+}
+
+.project-body {
+  padding: 1.25rem 1.5rem 0;
 }
 
 .project-meta {
@@ -1172,22 +1202,24 @@ a {
   letter-spacing: -0.02em;
 }
 
-.project-card > p:not(.project-done) {
+.project-desc {
   margin: 0 0 1rem;
   color: var(--text-muted);
   font-size: 0.9375rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.project-done {
-  margin: 0 !important;
-  font-size: 0.8125rem !important;
-  color: var(--text-muted);
-  line-height: 1.55;
+.project-actions {
+  padding: 0 1.5rem 1.5rem;
+  margin-top: auto;
 }
 
-.project-done strong {
-  color: var(--text);
-  font-weight: 600;
+.project-actions .btn {
+  width: 100%;
 }
 
 /* Why */
